@@ -19,7 +19,7 @@
                 document.getElementById('countryName').innerHTML = txt;
             }
             catch (error) {
-                document.getElementById('responseError').innerHTML = error.message;
+                alert(error.message);
             }
         }
 
@@ -59,7 +59,7 @@
                 document.getElementById('response').innerHTML = response.status + '<br />' + responseData;
             }
             catch (error) {
-                document.getElementById('responseError').innerHTML = error.message;
+                alert(error.message);
             }
         }
 
@@ -87,6 +87,5 @@
             document.getElementById('translations').value = '';
             document.getElementById('regionalBlocs').value = '';
             document.getElementById('cioc').value = '';
-            document.getElementById('flag').src = '';
-            document.getElementById('response').innerHTML = '';
+            document.getElementById('flag').src = '';            
         }
