@@ -1,1 +1,1 @@
-# restcountries.github.io
+# restcountries
