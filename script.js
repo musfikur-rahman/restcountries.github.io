@@ -25,45 +25,44 @@ async function RestCountriesByFetch() {
 
 async function RestSingleCountriesByFetch() {
     var requestData = document.getElementById('countryName').value;
-
-    let response = await fetch('https://restcountries.eu/rest/v2/alpha/' + requestData);
-
-    try {
-        let responseData = await response.text();
-        let obj = JSON.parse(responseData);
-        ClearAllFiled();
-        document.getElementById('name').value = obj.name;
-        document.getElementById('topLevelDomain').value = obj.topLevelDomain;
-        document.getElementById('alpha2Code').value = obj.alpha2Code;
-        document.getElementById('alpha3Code').value = obj.alpha3Code;
-        document.getElementById('callingCodes').value = obj.callingCodes;
-        document.getElementById('capital').value = obj.capital;
-        document.getElementById('altSpellings').value = obj.altSpellings;
-        document.getElementById('region').value = obj.region;
-        document.getElementById('subregion').value = obj.subregion;
-        document.getElementById('population').value = obj.population;
-        document.getElementById('latlng').value = obj.latlng;
-        document.getElementById('demonym').value = obj.demonym;
-        document.getElementById('area').value = obj.area;
-        document.getElementById('gini').value = obj.gini;
-        document.getElementById('timezones').value = obj.timezones;
-        document.getElementById('borders').value = obj.borders;
-        document.getElementById('nativeName').value = obj.nativeName;
-        document.getElementById('numericCode').value = obj.numericCode;
-        document.getElementById('currencies').value += obj.currencies[0].code + ',' + obj.currencies[0].name + ',' + obj.currencies[0].symbol;
-        document.getElementById('languages').value += obj.languages[0].iso639_1 + ',' + obj.languages[0].iso639_2 + ',' + obj.languages[0].name + ',' + obj.languages[0].nativeName;
-        document.getElementById('translations').value += obj.translations.de + ',' + obj.translations.es + ',' + obj.translations.fr + ',' + obj.translations.ja + ',' + obj.translations.it + ',' + obj.translations.br + ',' + obj.translations.pt + ',' + obj.translations.nl + ',' + obj.translations.hr + ',' + obj.translations.fa;
-        if (obj.regionalBlocs.length > 0) {
-            document.getElementById('regionalBlocs').value = obj.regionalBlocs[0].acronym + ',' + obj.regionalBlocs[0].name + ',' + obj.regionalBlocs[0].otherAcronyms + ',' + obj.regionalBlocs[0].otherNames;
-        }
-        else {
-            document.getElementById('regionalBlocs').value = '';
-        }
-        document.getElementById('cioc').value = obj.cioc;
-        document.getElementById('flag').src = obj.flag;
+    if (requestData == 0) {
+        alert('Please select a country');
     }
-    catch (error) {
-        alert(error.message);
+    else {
+        let response = await fetch('https://restcountries.eu/rest/v2/alpha/' + requestData);
+
+        try {
+            let responseData = await response.text();
+            let obj = JSON.parse(responseData);
+            ClearAllFiled();
+            document.getElementById('name').value = obj.name;
+            document.getElementById('topLevelDomain').value = obj.topLevelDomain;
+            document.getElementById('alpha2Code').value = obj.alpha2Code;
+            document.getElementById('alpha3Code').value = obj.alpha3Code;
+            document.getElementById('callingCodes').value = obj.callingCodes;
+            document.getElementById('capital').value = obj.capital;
+            document.getElementById('altSpellings').value = obj.altSpellings;
+            document.getElementById('region').value = obj.region;
+            document.getElementById('subregion').value = obj.subregion;
+            document.getElementById('population').value = obj.population;
+            document.getElementById('latlng').value = obj.latlng;
+            document.getElementById('demonym').value = obj.demonym;
+            document.getElementById('area').value = obj.area;
+            document.getElementById('gini').value = obj.gini;
+            document.getElementById('timezones').value = obj.timezones;
+            document.getElementById('borders').value = obj.borders;
+            document.getElementById('nativeName').value = obj.nativeName;
+            document.getElementById('numericCode').value = obj.numericCode;
+            if (obj.currencies.length > 0) { document.getElementById('currencies').value += obj.currencies[0].code + ',' + obj.currencies[0].name + ',' + obj.currencies[0].symbol; } else { document.getElementById('currencies').value = ''; }
+            if (obj.languages.length > 0) { document.getElementById('languages').value += obj.languages[0].iso639_1 + ',' + obj.languages[0].iso639_2 + ',' + obj.languages[0].name + ',' + obj.languages[0].nativeName; } else { document.getElementById('languages').value = ''; }
+            if (obj.translations.length > 0) { document.getElementById('translations').value += obj.translations.de + ',' + obj.translations.es + ',' + obj.translations.fr + ',' + obj.translations.ja + ',' + obj.translations.it + ',' + obj.translations.br + ',' + obj.translations.pt + ',' + obj.translations.nl + ',' + obj.translations.hr + ',' + obj.translations.fa; } else { document.getElementById('translations').value = ''; }
+            if (obj.regionalBlocs.length > 0) { document.getElementById('regionalBlocs').value = obj.regionalBlocs[0].acronym + ',' + obj.regionalBlocs[0].name + ',' + obj.regionalBlocs[0].otherAcronyms + ',' + obj.regionalBlocs[0].otherNames; } else { document.getElementById('regionalBlocs').value = ''; }
+            document.getElementById('cioc').value = obj.cioc;
+            document.getElementById('flag').src = obj.flag;
+        }
+        catch (error) {
+            alert(error.message);
+        }
     }
 }
 
