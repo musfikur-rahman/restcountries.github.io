@@ -1,5 +1,4 @@
 document.onreadystatechange = function () {
-    localStorage.clear();
     RestCountriesByFetch();
 }
 
