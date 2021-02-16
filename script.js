@@ -1,6 +1,5 @@
-window.location.reload(true);
-
 document.onreadystatechange = function () {
+    location.reload(true);
     RestCountriesByFetch();
 }
 
