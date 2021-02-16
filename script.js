@@ -55,8 +55,7 @@
                 document.getElementById('translations').value += obj.translations.de + ',' + obj.translations.es + ',' + obj.translations.fr + ',' + obj.translations.ja + ',' + obj.translations.it + ',' + obj.translations.br + ',' + obj.translations.pt + ',' + obj.translations.nl + ',' + obj.translations.hr + ',' + obj.translations.fa;
                 document.getElementById('regionalBlocs').value = obj.regionalBlocs[0].acronym + ',' + obj.regionalBlocs[0].name + ',' + obj.regionalBlocs[0].otherAcronyms + ',' + obj.regionalBlocs[0].otherNames;
                 document.getElementById('cioc').value = obj.cioc;
-                document.getElementById('flag').src = obj.flag;
-                document.getElementById('response').innerHTML = response.status + '<br />' + responseData;
+                document.getElementById('flag').src = obj.flag;                
             }
             catch (error) {
                 alert(error.message);
