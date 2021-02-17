@@ -4,7 +4,7 @@ document.onreadystatechange = function () {
 
 document.getElementById('countryName').onchange = function () {
     ClearAllField();
-    RestSingleCountriesByFetch();
+    RestSingleCountriesByFetch();    
 }
 
 async function RestCountriesByFetch() {
@@ -58,7 +58,7 @@ async function RestSingleCountriesByFetch() {
             if (obj.translations.length > 0) { document.getElementById('translations').value += obj.translations.de + ',' + obj.translations.es + ',' + obj.translations.fr + ',' + obj.translations.ja + ',' + obj.translations.it + ',' + obj.translations.br + ',' + obj.translations.pt + ',' + obj.translations.nl + ',' + obj.translations.hr + ',' + obj.translations.fa; } else { document.getElementById('translations').value = ''; }
             if (obj.regionalBlocs.length > 0) { document.getElementById('regionalBlocs').value = obj.regionalBlocs[0].acronym + ',' + obj.regionalBlocs[0].name + ',' + obj.regionalBlocs[0].otherAcronyms + ',' + obj.regionalBlocs[0].otherNames; } else { document.getElementById('regionalBlocs').value = ''; }
             document.getElementById('cioc').value = obj.cioc;
-            document.getElementById('flag').src = obj.flag;
+            if (obj.regionalBlocs.length > 0) { document.getElementById('flag').src = obj.flag; document.getElementById('flag').className = 'w3-image w3-border w3-border-black'; }
         }
         catch (error) {
             alert(error.message);
@@ -91,5 +91,5 @@ async function ClearAllField() {
     document.getElementById('regionalBlocs').value = '';
     document.getElementById('cioc').value = '';
     document.getElementById('flag').src = '';
+    document.getElementById('flag').className = '';
 }
-
