@@ -1,4 +1,5 @@
 document.onreadystatechange = function () {
+    labelClassChange();
     RestCountriesByFetch();
 }
 
@@ -91,4 +92,8 @@ async function ClearAllField() {
     document.getElementById('regionalBlocs').value = '';
     document.getElementById('cioc').value = '';
     document.getElementById('flag').src = '';
+}
+
+async function labelClassChange(){
+    document.getElementById('label').className = '';
 }
