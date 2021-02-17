@@ -1,5 +1,4 @@
 document.onreadystatechange = function () {
-    labelClassChange();
     RestCountriesByFetch();
 }
 
@@ -94,6 +93,3 @@ async function ClearAllField() {
     document.getElementById('flag').src = '';
 }
 
-async function labelClassChange(){
-    document.getElementById('label').className = '';
-}
