@@ -4,7 +4,7 @@ document.onreadystatechange = function () {
 
 document.getElementById('countryName').onchange = function () {
     ClearAllField();
-    RestSingleCountriesByFetch();    
+    RestSingleCountriesByFetch();
 }
 
 async function RestCountriesByFetch() {
@@ -18,6 +18,37 @@ async function RestCountriesByFetch() {
             txt += '<option value=' + obj[i].alpha2Code + '>' + obj[i].name + '</option>';
         }
         document.getElementById('countryName').innerHTML = txt;
+
+        var textSet = '';
+        for (i = 0; i < obj.length; i++) {
+            textSet += '<tr>';
+            textSet += '<td>' + obj[i].name + '</td>';
+            textSet += '<td>' + obj[i].topLevelDomain + '</td>';
+            textSet += '<td>' + obj[i].alpha2Code + '</td>';
+            textSet += '<td>' + obj[i].alpha3Code + '</td>';
+            textSet += '<td>' + obj[i].callingCodes + '</td>';
+            textSet += '<td>' + obj[i].capital + '</td>';
+            textSet += '<td>' + obj[i].altSpellings + '</td>';
+            textSet += '<td>' + obj[i].region + '</td>';
+            textSet += '<td>' + obj[i].subregion + '</td>';
+            textSet += '<td>' + obj[i].population + '</td>';
+            textSet += '<td>' + obj[i].latlng + '</td>';
+            textSet += '<td>' + obj[i].demonym + '</td>';
+            textSet += '<td>' + obj[i].area + '</td>';
+            textSet += '<td>' + obj[i].gini + '</td>';
+            textSet += '<td>' + obj[i].timezones + '</td>';
+            textSet += '<td>' + obj[i].borders + '</td>';
+            textSet += '<td>' + obj[i].nativeName + '</td>';
+            textSet += '<td>' + obj[i].numericCode + '</td>';
+            textSet += '<td>' + obj[i].currencies + '</td>';
+            textSet += '<td>' + obj[i].languages + '</td>';
+            textSet += '<td>' + obj[i].translations + '</td>';
+            textSet += '<td>' + obj[i].regionalBlocs + '</td>';
+            textSet += '<td>' + obj[i].cioc + '</td>';
+            textSet += '<td>' + obj[i].flag + '</td>';
+            textSet += '</tr>';
+        }
+        document.getElementById('tableData').innerHTML = textSet;
     }
     catch (error) {
         alert(error.message);
