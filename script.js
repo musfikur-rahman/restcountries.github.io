@@ -3,6 +3,7 @@ document.onreadystatechange = function () {
 }
 
 document.getElementById('countryName').onchange = function () {
+    ClearAllField();
     RestSingleCountriesByFetch();
 }
 
@@ -12,7 +13,7 @@ async function RestCountriesByFetch() {
         let data = await response.text();
         let obj = JSON.parse(data);
         var txt = '';
-        txt += '<option value="0">-------Select-------</option>';
+        txt += '<option value="">-------Select-------</option>';
         for (i = 0; i < obj.length; i++) {
             txt += '<option value=' + obj[i].alpha2Code + '>' + obj[i].name + '</option>';
         }
@@ -25,7 +26,7 @@ async function RestCountriesByFetch() {
 
 async function RestSingleCountriesByFetch() {
     var requestData = document.getElementById('countryName').value;
-    if (requestData == 0) {
+    if (requestData == '') {
         alert('Please select a country');
     }
     else {
@@ -34,7 +35,6 @@ async function RestSingleCountriesByFetch() {
         try {
             let responseData = await response.text();
             let obj = JSON.parse(responseData);
-            ClearAllFiled();
             document.getElementById('name').value = obj.name;
             document.getElementById('topLevelDomain').value = obj.topLevelDomain;
             document.getElementById('alpha2Code').value = obj.alpha2Code;
@@ -66,7 +66,7 @@ async function RestSingleCountriesByFetch() {
     }
 }
 
-function ClearAllFiled() {
+function ClearAllField() {
     document.getElementById('name').value = '';
     document.getElementById('topLevelDomain').value = '';
     document.getElementById('alpha2Code').value = '';
