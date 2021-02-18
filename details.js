@@ -1,4 +1,9 @@
+window.onresize = function () {
+    windowSize();
+}
+
 document.onreadystatechange = function () {
+    windowSize();
     RestCountriesByFetch();
 }
 
@@ -58,7 +63,7 @@ async function RestCountriesByFetch() {
             textSet += '<td>' + obj[i].translations + '</td>';
             textSet += '<td>' + obj[i].regionalBlocs + '</td>';
             textSet += '<td>' + obj[i].cioc + '</td>';
-            textSet += '<td><img src=' + obj[i].flag + ' class="w3-image" /></td>';
+            textSet += '<td><img src=' + obj[i].flag + ' class="w3-image" ></td>';
             textSet += '</tr>';
         }
         document.getElementById('tableData').innerHTML = textSet;
@@ -66,4 +71,9 @@ async function RestCountriesByFetch() {
     catch (error) {
         alert(error.message);
     }
+}
+
+async function windowSize() {
+    document.getElementById('screen').style.height = (window.innerHeight - 75) + 'px';
+    document.getElementById('screen').style.overflow = scroll;
 }
