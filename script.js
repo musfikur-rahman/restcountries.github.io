@@ -49,6 +49,7 @@ async function RestSingleCountriesByFetch() {
             document.getElementById('demonym').value = obj.demonym;
             document.getElementById('area').value = obj.area;
             document.getElementById('gini').value = obj.gini;
+            
             document.getElementById('timezones').value = obj.timezones;
             document.getElementById('borders').value = obj.borders;
             document.getElementById('nativeName').value = obj.nativeName;
