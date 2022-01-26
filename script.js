@@ -8,7 +8,7 @@ document.getElementById('countryName').onchange = function () {
 }
 
 async function RestCountriesByFetch() {
-    let response = await fetch('https://restcountries.eu/rest/v2/all');
+    let response = await fetch('https://restcountries.com/v2/all');
     try {
         let data = await response.text();
         let obj = JSON.parse(data);
@@ -30,7 +30,7 @@ async function RestSingleCountriesByFetch() {
         alert('Please select a country');
     }
     else {
-        let response = await fetch('https://restcountries.eu/rest/v2/alpha/' + requestData);
+        let response = await fetch('https://restcountries.com/v2/alpha/' + requestData);
 
         try {
             let responseData = await response.text();
