@@ -54,12 +54,28 @@ async function RestSingleCountriesByFetch() {
             document.getElementById('borders').value = obj.borders;
             document.getElementById('nativeName').value = obj.nativeName;
             document.getElementById('numericCode').value = obj.numericCode;
-            if (obj.currencies.length > 0) { document.getElementById('currencies').value += obj.currencies[0].code + ',' + obj.currencies[0].name + ',' + obj.currencies[0].symbol; } else { document.getElementById('currencies').value = ''; }
-            if (obj.languages.length > 0) { document.getElementById('languages').value += obj.languages[0].iso639_1 + ',' + obj.languages[0].iso639_2 + ',' + obj.languages[0].name + ',' + obj.languages[0].nativeName; } else { document.getElementById('languages').value = ''; }
-            if (obj.translations.length > 0) { document.getElementById('translations').value += obj.translations.de + ',' + obj.translations.es + ',' + obj.translations.fr + ',' + obj.translations.ja + ',' + obj.translations.it + ',' + obj.translations.br + ',' + obj.translations.pt + ',' + obj.translations.nl + ',' + obj.translations.hr + ',' + obj.translations.fa; } else { document.getElementById('translations').value = ''; }
-            if (obj.regionalBlocs.length > 0) { document.getElementById('regionalBlocs').value = obj.regionalBlocs[0].acronym + ',' + obj.regionalBlocs[0].name + ',' + obj.regionalBlocs[0].otherAcronyms + ',' + obj.regionalBlocs[0].otherNames; } else { document.getElementById('regionalBlocs').value = ''; }
+            if (obj.currencies.length > 0) { 
+                document.getElementById('currencies').value += obj.currencies[0].code + ',' + obj.currencies[0].name + ',' + obj.currencies[0].symbol; 
+            } else { 
+                document.getElementById('currencies').value = ''; 
+            }
+            if (obj.languages.length > 0) { 
+                document.getElementById('languages').value += obj.languages[0].iso639_1 + ',' + obj.languages[0].iso639_2 + ',' + obj.languages[0].name + ',' + obj.languages[0].nativeName; 
+            } else { 
+                document.getElementById('languages').value = ''; 
+            }
+            if (obj.translations.length > 0) { 
+                document.getElementById('translations').value += obj.translations.de + ',' + obj.translations.es + ',' + obj.translations.fr + ',' + obj.translations.ja + ',' + obj.translations.it + ',' + obj.translations.br + ',' + obj.translations.pt + ',' + obj.translations.nl + ',' + obj.translations.hr + ',' + obj.translations.fa; 
+            } else { 
+                document.getElementById('translations').value = ''; 
+            }
+            if (obj.regionalBlocs.length > 0) { 
+                document.getElementById('regionalBlocs').value = obj.regionalBlocs[0].acronym + ',' + obj.regionalBlocs[0].name + ',' + obj.regionalBlocs[0].otherAcronyms + ',' + obj.regionalBlocs[0].otherNames; 
+            } else { 
+                document.getElementById('regionalBlocs').value = ''; }
             document.getElementById('cioc').value = obj.cioc;
-            if (obj.regionalBlocs.length > 0) { document.getElementById('flag').src = obj.flag; document.getElementById('flag').className = 'w3-image w3-border w3-border-black'; }
+            document.getElementById('flag').src = obj.flag; 
+            document.getElementById('flag').className = 'w3-image w3-border w3-border-black';
         }
         catch (error) {
             alert(error.message);
