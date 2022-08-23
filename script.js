@@ -53,8 +53,12 @@ async function RestSingleCountriesByFetch() {
             document.getElementById('borders').value = obj.borders;
             document.getElementById('nativeName').value = obj.nativeName;
             document.getElementById('numericCode').value = obj.numericCode;
-            if (obj.currencies.length > 0) { 
-                document.getElementById('currencies').value += obj.currencies[0].code + ',' + obj.currencies[0].name + ',' + obj.currencies[0].symbol; 
+            if (Object.hasOwn(obj, 'currencies') == true) {
+                if (obj.currencies.length > 0) { 
+                    document.getElementById('currencies').value += obj.currencies[0].code + ',' + obj.currencies[0].name + ',' + obj.currencies[0].symbol; 
+                } else { 
+                    document.getElementById('currencies').value = ''; 
+                }
             } else { 
                 document.getElementById('currencies').value = ''; 
             }
