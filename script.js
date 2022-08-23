@@ -48,8 +48,7 @@ async function RestSingleCountriesByFetch() {
             document.getElementById('latlng').value = obj.latlng;
             document.getElementById('demonym').value = obj.demonym;
             document.getElementById('area').value = obj.area;
-            document.getElementById('gini').value = obj.gini;
-            
+            document.getElementById('gini').value = obj.gini;            
             document.getElementById('timezones').value = obj.timezones;
             document.getElementById('borders').value = obj.borders;
             document.getElementById('nativeName').value = obj.nativeName;
@@ -69,17 +68,22 @@ async function RestSingleCountriesByFetch() {
             } else { 
                 document.getElementById('translations').value = ''; 
             }
-            if (obj.regionalBlocs.length > 0) { 
-                document.getElementById('regionalBlocs').value = obj.regionalBlocs[0].acronym + ',' + obj.regionalBlocs[0].name + ',' + obj.regionalBlocs[0].otherAcronyms + ',' + obj.regionalBlocs[0].otherNames; 
-            } else { 
+            if (Object.hasOwn(obj, 'regionalBlocs') == true) {
+                if(obj.regionalBlocs.length > 0){
+                    document.getElementById('regionalBlocs').value = obj.regionalBlocs[0].acronym + ',' + obj.regionalBlocs[0].name; 
+                } else {
+                    document.getElementById('regionalBlocs').value = ''; 
+                }
+            } else {
                 document.getElementById('regionalBlocs').value = ''; 
             }
             document.getElementById('cioc').value = obj.cioc;
-            if (obj.flag.length > 0) { 
-                document.getElementById('flag').src = obj.flag[0].svg; 
-            } else {
+            if (Object.hasOwn(obj, 'flag') == true) {
                 document.getElementById('flag').src = obj.flag; 
             }
+            if (Object.hasOwn(obj, 'flags') == true) {
+                document.getElementById('flag').src = obj.flags.svg; 
+            } 
             document.getElementById('flag').className = 'w3-image w3-border w3-border-black';
         }
         catch (error) {
