@@ -72,9 +72,10 @@ async function RestSingleCountriesByFetch() {
             if (obj.regionalBlocs.length > 0) { 
                 document.getElementById('regionalBlocs').value = obj.regionalBlocs[0].acronym + ',' + obj.regionalBlocs[0].name + ',' + obj.regionalBlocs[0].otherAcronyms + ',' + obj.regionalBlocs[0].otherNames; 
             } else { 
-                document.getElementById('regionalBlocs').value = ''; }
+                document.getElementById('regionalBlocs').value = ''; 
+            }
             document.getElementById('cioc').value = obj.cioc;
-            document.getElementById('flag').src = obj.flag; 
+            document.getElementById('flag').src = obj.flag[0]; 
             document.getElementById('flag').className = 'w3-image w3-border w3-border-black';
         }
         catch (error) {
