@@ -75,7 +75,11 @@ async function RestSingleCountriesByFetch() {
                 document.getElementById('regionalBlocs').value = ''; 
             }
             document.getElementById('cioc').value = obj.cioc;
-            document.getElementById('flag').src = obj.flag[0].svg; 
+            if (obj.flag.length > 0) { 
+                document.getElementById('flag').src = obj.flag[0].svg; 
+            } else {
+                document.getElementById('flag').src = obj.flag; 
+            }
             document.getElementById('flag').className = 'w3-image w3-border w3-border-black';
         }
         catch (error) {
