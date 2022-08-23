@@ -8,7 +8,7 @@ document.onreadystatechange = function () {
 }
 
 async function RestCountriesByFetch() {
-    let response = await fetch('https://restcountries.eu/rest/v2/all');
+    let response = await fetch('https://restcountries.com/v2/all');
     try {
         let data = await response.text();
         let obj = JSON.parse(data);
